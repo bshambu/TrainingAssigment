@@ -1,0 +1,78 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
+</head>
+<body>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <p id="p4"></p>
+    <p id="p5"></p>
+    <p id="p6"></p>
+    <script>
+            var p1 = (prompt("enter your 1st value",'Add'));
+        if(p1){
+            
+            var v1 = parseInt(prompt("enter your 1st value"));
+            var v2 = parseInt(prompt("enter your 2nd value"));
+            var p1 = v1 + v2;
+                $("#p1").html(p1);
+        }
+        
+            var p2 = (prompt("enter your 2nd value",'Substract'));
+        if(p2){
+                var v1 = parseInt(prompt("enter your 1st value"));
+            var v2 = parseInt(prompt("enter your 2nd value"));
+            var p1 = v1 - v2;
+            
+            $("#p2").html(p1);
+               
+           }
+            var p3 = (prompt("enter your 3rd value",'Multiple'));
+        if(p3){
+               
+            var v1 = parseInt(prompt("enter your 1st value"));
+            var v2 = parseInt(prompt("enter your 2nd value"));
+            var p1 = v1 * v2;
+                $("#p3").html(p1);
+               
+           }
+            var p4 = (prompt("enter your 4th value",'Divide'));
+         if(p4){
+               
+            var v1 = parseInt(prompt("enter your 1st value"));
+            var v2 = parseInt(prompt("enter your 2nd value"));
+            var p1 = v1 / v2;
+                $("#p4").html(p1);
+               
+           }
+            var p5 = (prompt("enter your 5th value",'Exponent'));
+         if(p5){
+            var v1 = parseInt(prompt("enter your 1st value"));
+            var p1 = Math.exp(v1);;
+                $("#p5").html(p1);
+               
+           }
+            var p6 = (prompt("enter your 6th value",'Mean'));
+        
+        if(p6){
+               
+            var v1 = parseInt(prompt("enter your 1st value"));
+            var v2 = parseInt(prompt("enter your 2nd value"));
+            var p1 = (v1 + v2) / 2;
+                $("#p6").html(p1);
+           }
+        
+            var p7 = (prompt("enter your 7th value",'Quit'));
+        if(p7){
+               
+              setTimeout(function(){ alert("Hello"); }, 3000);
+              location.reload();
+           }
+
+   
+            
+    </script>
+
+</body>
+</html>

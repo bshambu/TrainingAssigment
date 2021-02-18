@@ -1,0 +1,148 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
+</head>
+<body>
+    <form id="MyForm" action="javascript:void(0);"  method="POST" style="width: 600px;font-family: arial;font-size: 80%;background: light gray;margin: 20px;">
+        <label>Name: </label><input type="text" name="Name" ><br>
+        <label>Email: </label><input type="email" name="Email"><br>
+        <label>Toppings</label><br>
+        Extra Cheese <input name="ECheese" type="checkbox">
+        Pepperoni <input name="Pepperoni" type="checkbox">
+        Olives <input name="Olives" type="checkbox">
+        Pepper <input name="Pepper" type="checkbox">
+        Tomatoes <input name="Tomatoes" type="checkbox">
+        Mushrooms <input name="Mushrooms" type="checkbox">
+        <br>How do you want to get your pizza! Delivery <input type="radio" name="Delivery" value="Delivery"> Pickup <input type="radio" name="Delivery" value="Pickup">
+        <br>Tip?<select id="Tip" name="Tip">
+                    <option selected value="15">15%</option>
+                    <option value="20">20%</option>
+                    <option value="25">25%</option>
+        </select>
+        <hr><label>Address</label><br><textarea name="Address" id="Address"></textarea><br><br>
+        <input name="Submit" type="submit" value="Submit">
+        <button id="Reset" >Reset</button>
+            <button id="Summary" disable>Show Summary</button>
+    </form>
+    
+    <table id="Table" style="border:1px solid black">
+        <tr>
+            <td class="tcol">Name:</td>
+            <td id="TdName"></td>
+        </tr>
+        <tr>
+            <td class="tcol">Email:</td>
+            <td id="TdEmail"></td>
+        </tr>
+        <tr>
+            <td class="tcol">Address:</td>
+            <td id="TdAddress"></td>
+        </tr>
+        <tr id="toppings">
+            <td class="tcol">Toppings:</td>
+            <td></td>
+        </tr>
+         <tr>
+            <td class="tcol">Delivery ?:</td>
+            <td id="TdDelivery"></td>
+        </tr>
+        <tr>
+            <td class="tcol">Tip  Amount:</td>
+            <td id="TdTip"></td>
+        </tr>
+        <tr>
+            <td class="tcol">Total</td>
+            <td id="TdTotal"></td>
+        </tr>
+    </table>
+    <script>
+        $('#Table').hide();
+        $('#Summary')
+     $("#Summary").click(function(){   
+         $('#Table').show(); 
+     });
+    $("#Reset").click(function(){   
+         location.reload();
+     });
+     $("input[name='Submit']").click(function(){
+        
+         var ECheese = $("input[name='ECheese']").is(":checked");
+         var Pepperoni = $("input[name='Pepperoni']").is(":checked");
+         var Olives = $("input[name='Olives']").is(":checked");
+         var Pepper = $("input[name='Pepper']").is(":checked");
+         var Tomatoes = $("input[name='Tomatoes']").is(":checked");
+         var Mushrooms = $("input[name='Mushrooms']").is(":checked");
+         
+         if(ECheese || Pepperoni || Olives || Pepper || Tomatoes || Mushrooms){
+             i=1;
+             if(ECheese){
+
+                 var newtr = "<tr><td style='background-color:black;color:white;'>"+
+                     'Topping : '+"</td><td>"+'ECheese'+"</td></tr>";
+                 $(newtr).insertAfter('#toppings');
+                 i++;
+                }
+             
+             if(Pepperoni){
+                 
+                 var newtr = "<tr><td style='background-color:black;color:white;'>"+
+                     'Topping : '+"</td><td>"+'Pepperoni'+"</td></tr>";
+                 $(newtr).insertAfter('#toppings');
+                 i++;
+                }
+             
+             if(Olives){
+                 
+                 var newtr = "<tr><td style='background-color:black;color:white;'>"+
+                     'Topping : '+"</td><td>"+'Olives'+"</td></tr>";
+                 $(newtr).insertAfter('#toppings');
+                 i++;
+                }
+             
+             if(Tomatoes){
+                 
+                var newtr = "<tr><td style='background-color:black;color:white;'>"+
+                     'Topping : '+"</td><td>"+'Tomatoes'+"</td></tr>";
+                 $(newtr).insertAfter('#toppings');
+                 i++;
+                }
+             
+             if(Mushrooms){
+                 
+                 var newtr = "<tr><td style='background-color:black;color:white;'>"+
+                     'Topping : '+"</td><td>"+'Mushrooms'+"</td></tr>";
+                 $(newtr).insertAfter('#toppings');
+                 i++;
+                }
+             
+            }else{
+                alert('Please Check Any One From Toppings');
+            }
+            
+              var Name = $("input[name='Name']").val();
+              var Email = $("input[name='Email']").val();
+              var Address = $("textarea#Address").val();
+              var Delivery = $("input[name='Delivery']:checked",'#MyForm').val();
+              var Tip = $("#Tip").val()+" %";
+                if(Name && Email && Tip && Delivery && Address){
+                        $('#TdName').html(Name);
+                        $('#TdEmail').html(Email);
+                        $('#TdAddress').html(Address);
+                        $('#TdDelivery').html(Delivery);
+                        $('#TdTip').html(Tip);
+                    var totalVal = ((10 +(1.5 * i))* 1.2);
+                    $('#TdTotal').html(totalVal);
+                   }else{
+                    alert("Please fill all fields");
+                   }
+                $('#Summary').removeAttr('disabled');
+                     
+            }); 
+        
+        $("tr:even").css("background-color", "#eee");
+        $("tr:odd").css("background-color", "#fff");
+        $(".tcol").css("background-color", "black");
+        $(".tcol").css("color", "white");
+    </script>
+</body>    
+</html>    

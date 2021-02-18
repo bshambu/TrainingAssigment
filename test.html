@@ -1,0 +1,33 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
+</head>
+<body>
+    <form class="FormId" method="POST">
+        <input type="text" name="Tvalue" >
+        <input type="submit" value="Show Results">
+    </form>
+    <script>
+            $("form").submit(function(){
+              var Tvalue = $("input[name='Tvalue']").val();
+                if(Tvalue){
+                    var cela = parseInt(Tvalue);
+                    if(isNaN(cela)){
+                       alert('its not an number');
+                       }else{
+                       var celu = Math.round((cela - 32) * (5/9));
+                        var cel = celu.toString() + " C";
+                        alert(cel);
+                                
+                       }
+                    
+                 }else{
+                     alert('no value')
+                 }
+            }); 
+          
+    </script>
+    <script src="test.js"></script>
+
+</body>
+</html>
